@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Production · Farmer Carbon Tracker</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav>
+    <span class="brand">🌱 CarbonKhet</span>
+    <a href="/">Dashboard</a>
+    <a href="/farmers.html">Farmers</a>
+    <a href="/collections.html">Collections</a>
+    <a href="/production.html" class="active">Production</a>
+    <a href="/route.html">Route</a>
+    <a href="/reports.html">Reports</a>
+  </nav>
+
+  <main>
+    <h1>Biochar Production</h1>
+
+    <form id="production-form">
+      <label>Source Collection (Received only)
+        <select name="collection_id" id="collection-select" required>
+          <option value="">Loading collections...</option>
+        </select>
+      </label>
+      <label>Biomass Input (tonnes)
+        <input name="biomass_input_tonnes" type="number" step="0.01" required />
+      </label>
+      <label>Batch Date
+        <input name="batch_date" type="date" required />
+      </label>
+      <button type="submit">Record Batch</button>
+    </form>
+
+    <div class="card">
+      <h2>Production Batches</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Date</th><th>Collection ID</th>
+              <th>Biomass In (t)</th><th>Biochar Out (t)</th><th>Carbon Stored (t)</th>
+            </tr>
+          </thead>
+          <tbody id="batch-rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/production.js"></script>
+</body>
+</html>

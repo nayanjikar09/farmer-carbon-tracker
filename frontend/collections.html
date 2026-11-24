@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collections · Farmer Carbon Tracker</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav>
+    <span class="brand">🌱 CarbonKhet</span>
+    <a href="/">Dashboard</a>
+    <a href="/farmers.html">Farmers</a>
+    <a href="/collections.html" class="active">Collections</a>
+    <a href="/production.html">Production</a>
+    <a href="/route.html">Route</a>
+    <a href="/reports.html">Reports</a>
+  </nav>
+
+  <main>
+    <h1>Biomass Collection</h1>
+
+    <form id="collection-form">
+      <label>Farmer
+        <select name="farmer_id" id="farmer-select" required></select>
+      </label>
+      <label>Waste Quantity (tonnes)
+        <input name="waste_quantity_tonnes" type="number" step="0.01" required />
+      </label>
+      <label>Collection Date
+        <input name="collection_date" type="date" required />
+      </label>
+      <button type="submit">Add Collection</button>
+    </form>
+
+    <div class="card">
+      <h2>Collection Records</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Farmer</th>
+              <th>Village</th>
+              <th>Qty (t)</th>
+              <th>Actual (t)</th>
+              <th>Est. Cost</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="collection-rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/collections.js"></script>
+</body>
+</html>

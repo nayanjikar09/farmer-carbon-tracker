@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports · Farmer Carbon Tracker</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav>
+    <span class="brand">🌱 CarbonKhet</span>
+    <a href="/">Dashboard</a>
+    <a href="/farmers.html">Farmers</a>
+    <a href="/collections.html">Collections</a>
+    <a href="/production.html">Production</a>
+    <a href="/route.html">Route</a>
+    <a href="/reports.html" class="active">Reports</a>
+  </nav>
+
+  <main>
+    <h1>Reports</h1>
+
+    <!-- ===== Farmer Payment Report ===== -->
+    <div class="card" style="margin-bottom:20px">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+        <div>
+          <h2 style="margin:0;">Farmer Payment Report</h2>
+          <p style="color:#6b7280;font-size:13px;margin-top:4px;">
+            Payment = ₹800 × actual delivered tonnes. Sorted by highest payment.
+          </p>
+        </div>
+        <button class="small" onclick="downloadPaymentsCSV()">📥 Download CSV</button>
+      </div>
+      
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Village</th>
+              <th>Acres</th>
+              <th>Collections</th>
+              <th>Delivered (t)</th>
+              <th>Total Payment (₹)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="payment-rows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== Production Report ===== -->
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+        <h2 style="margin:0;">Production Report</h2>
+        <button class="small" onclick="downloadProductionCSV()">📥 Download CSV</button>
+      </div>
+
+      <div class="stats" style="margin:12px 0 16px">
+        <div class="card stat">
+          <div class="label">Biomass Processed</div>
+          <div class="value" id="r-biomass">0 t</div>
+        </div>
+        <div class="card stat">
+          <div class="label">Biochar Produced</div>
+          <div class="value" id="r-biochar">0 t</div>
+        </div>
+        <div class="card stat">
+          <div class="label">Carbon Stored</div>
+          <div class="value" id="r-carbon">0 t</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Batch ID</th>
+              <th>Date</th>
+              <th>Farmer</th>
+              <th>Village</th>
+              <th>Biomass (t)</th>
+              <th>Biochar (t)</th>
+              <th>Carbon (t)</th>
+            </tr>
+          </thead>
+          <tbody id="batch-rows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <p style="margin-top:16px;font-size:12px;color:#9ca3af">
+      All figures are based on recorded field data, not verified carbon removal.
+    </p>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Farmer Carbon Tracker</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <nav>
+        <span class="brand">🌱 CarbonKhet</span>
+        <a href="/" class="active">Dashboard</a>
+        <a href="/farmers.html">Farmers</a>
+        <a href="/collections.html">Collections</a>
+        <a href="/production.html">Production</a>
+        <a href="/route.html">Route</a>
+        <a href="/reports.html">Reports</a>
+    </nav>
+
+  <main>
+    <h1>AgroCarbon Intelligence — Dashboard</h1>
+
+    <div class="stats">
+      <div class="card stat"><div class="label">Farmers Registered</div><div class="value" id="s-farmers">0</div></div>
+      <div class="card stat"><div class="label">Biomass Collected</div><div class="value" id="s-biomass">0 t</div></div>
+      <div class="card stat"><div class="label">Biochar Produced</div><div class="value" id="s-biochar">0 t</div></div>
+      <div class="card stat"><div class="label">Estimated Gross Carbon</div><div class="value" id="s-carbon">0 t</div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Collection Records</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Village</th><th>Biomass</th><th>Status</th></tr></thead>
+            <tbody id="collection-rows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Production Tracking</h2>
+        <p style="margin:8px 0;color:#6b7280;font-size:14px">Biomass processed</p>
+        <div style="font-size:22px;font-weight:700;color:#2e7d32" id="p-biomass">0 tonnes</div>
+        <p style="margin:16px 0 8px;color:#6b7280;font-size:14px">Biochar produced</p>
+        <div style="font-size:22px;font-weight:700;color:#2e7d32" id="p-biochar">0 tonnes</div>
+
+        <h2 style="margin-top:20px">Carbon Monitoring</h2>
+        <p style="color:#92400e;font-weight:600" id="carbon-status">—</p>
+      </div>
+    </div>
+
+    <p style="margin-top:16px;font-size:12px;color:#9ca3af">
+      All figures are demonstration data, not verified carbon removal.
+    </p>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
